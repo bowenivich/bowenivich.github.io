@@ -527,6 +527,24 @@ td:last-child {
   padding-right: 0;
 }
 
+/* Figures
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+figure,
+.figure {
+  overflow-x: scroll;
+  border: 1px solid #ccc;
+}
+
+code,
+.code {
+  font-size: 85%;
+}
+
+gutter,
+.gutter {
+  font-size: 85%;
+}
+
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
