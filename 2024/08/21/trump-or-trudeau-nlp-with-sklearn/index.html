@@ -272,6 +272,8 @@
 <td>RT @PattyHajdu: Focusing on prevention, increa…</td>
 </tr>
 </tbody></table>
+<br />
+
 <h3 id="Split-for-Training-and-Validation"><a href="#Split-for-Training-and-Validation" class="headerlink" title="Split for Training and Validation"></a>Split for Training and Validation</h3><p>I used 20% of the dataset for validation to see how well the model is performing. </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line">train_x, valid_x, train_y, valid_y = train_test_split(df[&#x27;status&#x27;], df[&#x27;author&#x27;], test_size=0.2, random_state=42)</span><br></pre></td></tr></table></figure>
 
