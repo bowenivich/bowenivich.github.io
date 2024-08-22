@@ -8,11 +8,11 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - Bowen Feng</title>
+  <title>Trump or Trudeau? NLP with scikit-learn</title>
   
-  <link rel="canonical" href="https://bowenfeng.com/Projects/">
+  <link rel="canonical" href="https://bowenfeng.com/2024/08/21/trump-or-trudeau-nlp-with-sklearn/">
   
-  <meta name="description" content="">
+  <meta name="description" content="IntroductionThere is a variety of powerful tools for Natural Language Processing (NLP) to analyze and interpret textual data. This project serves as a">
   
   
   <meta name="keywords" content="Bowen Feng">
@@ -20,28 +20,24 @@
   <meta name="author" content="Bowen Feng">
   
   
-  <meta property="og:image" content="https://bowenfeng.com/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="Bowen Feng" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - Bowen Feng" />
+  <meta property="og:title" content="Trump or Trudeau? NLP with scikit-learn" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="IntroductionThere is a variety of powerful tools for Natural Language Processing (NLP) to analyze and interpret textual data. This project serves as a">
   
-  <meta property="og:url" content="https://bowenfeng.com/Projects/" />
+  <meta property="og:url" content="https://bowenfeng.com/2024/08/21/trump-or-trudeau-nlp-with-sklearn/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - Bowen Feng">
+  <meta name="twitter:title" content="Trump or Trudeau? NLP with scikit-learn">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="https://bowenfeng.com/images/thumbnail.jpg">
+  <meta name="twitter:description" content="IntroductionThere is a variety of powerful tools for Natural Language Processing (NLP) to analyze and interpret textual data. This project serves as a">
   
   
-  <meta name="twitter:url" content="https://bowenfeng.com/Projects/" />
+  
+  
+  <meta name="twitter:url" content="https://bowenfeng.com/2024/08/21/trump-or-trudeau-nlp-with-sklearn/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -198,50 +194,94 @@
 </div>
 
         <div class="trans">
-          
-<h1>Projects</h1>
+            <h1>Trump or Trudeau? NLP with scikit-learn</h1>
 
-<p>I have completed numerous projects related to machine learning and data analytics during my academic journey, where I've explored a wide range of techniques including predictive modeling, natural language processing, and deep learning. Currently, I'm in the process of compiling and organizing these projects.</p>
+  <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>There is a variety of powerful tools for Natural Language Processing (NLP) to analyze and interpret textual data. This project serves as a practical application to apply the simpliest NLP technique using an interest dataset. The primary goal is to distinguish the tweets by Donald Trump or Justin Trudeau with a simple yet effective approach. </p>
+<h2 id="Rundown"><a href="#Rundown" class="headerlink" title="Rundown"></a>Rundown</h2><h3 id="Import-Dataset"><a href="#Import-Dataset" class="headerlink" title="Import Dataset"></a>Import Dataset</h3><p>This is an interesting dataset. It is shared by Moez Ali, an amazing professor who is teaching Predictive Modelling and Big Data Analytics at Queen’s University. It contains 400 tweets by Donald Trump and Justin Trudeau. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(&#x27;tweets_trump_trudeau.csv&#x27;)</span><br><span class="line">df = df.set_index(&#x27;id&#x27;)</span><br></pre></td></tr></table></figure>
 
+<h3 id="A-Quick-Look"><a href="#A-Quick-Look" class="headerlink" title="A Quick Look"></a>A Quick Look</h3><p>Tweets from Donald Trump. </p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>author</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>157</td>
+<td>Donald J. Trump</td>
+<td>#JFKFiles <a target="_blank" rel="noopener" href="https://t.co/AnPBSJFh3J">https://t.co/AnPBSJFh3J</a></td>
+</tr>
+<tr>
+<td>152</td>
+<td>Donald J. Trump</td>
+<td>After strict consultation with General Kelly, …</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Donald J. Trump</td>
+<td>The United States will be immediately implemen…</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Donald J. Trump</td>
+<td>….for the Middle Class. The House and Senate…</td>
+</tr>
+<tr>
+<td>130</td>
+<td>Donald J. Trump</td>
+<td>Thank you @LuisRiveraMarin! <a target="_blank" rel="noopener" href="https://t.co/BK7sD">https://t.co/BK7sD</a>…</td>
+</tr>
+</tbody></table>
+<br />
 
-    <article>
-      <div class="row">
+<p>Tweets from Justin Trudeau. </p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>author</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>345</td>
+<td>Justin Trudeau</td>
+<td>RT @PMcanadien: En direct: le PM Trudeau souli…</td>
+</tr>
+<tr>
+<td>276</td>
+<td>Justin Trudeau</td>
+<td>Merci à Nguyen Cong Hiep, du consulat canadien…</td>
+</tr>
+<tr>
+<td>336</td>
+<td>Justin Trudeau</td>
+<td>Today, I spoke with Governor @GregAbbott_TX to…</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Justin Trudeau</td>
+<td>This afternoon, I met with Vietnam’s Secretary…</td>
+</tr>
+<tr>
+<td>323</td>
+<td>Justin Trudeau</td>
+<td>RT @PattyHajdu: Focusing on prevention, increa…</td>
+</tr>
+</tbody></table>
+<h3 id="Split-for-Training-and-Validation"><a href="#Split-for-Training-and-Validation" class="headerlink" title="Split for Training and Validation"></a>Split for Training and Validation</h3><p>I used 20% of the dataset for validation to see how well the model is performing. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line">train_x, valid_x, train_y, valid_y = train_test_split(df[&#x27;status&#x27;], df[&#x27;author&#x27;], test_size=0.2, random_state=42)</span><br></pre></td></tr></table></figure>
 
-        <div class="three columns left lit">
-          <p class="bottom">Aug 21, 2024</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2024/08/21/trump-or-trudeau-nlp-with-sklearn/" class="">
-            
-              Trump or Trudeau? NLP with scikit-learn
-            
-          </a>
-        </div>
-      </div>
-    </article>
+<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><p>Since this project is for fun and the dataset is not huge, I am just using <code>TfidfVectorizer</code> instead of more advanced techniques.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.feature_extraction.text import TfidfVectorizer</span><br><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line"></span><br><span class="line">vectorizer = TfidfVectorizer()</span><br><span class="line">train_x_vec = vectorizer.fit_transform(train_x)</span><br><span class="line">valid_x_vec = vectorizer.transform(valid_x)</span><br><span class="line"></span><br><span class="line">model = LogisticRegression()</span><br><span class="line">model.fit(train_x_vec, train_y)</span><br><span class="line"></span><br><span class="line">y_pred = model.predict(valid_x_vec)</span><br></pre></td></tr></table></figure>
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Aug 16, 2024</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2024/08/16/digit-recognizer/" class="">
-            
-              Digit Recognizer using PyTorch and KFold
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
-    
-    
-  </ul>
-</div>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>This logistic regression model achieved an accuracy score of 0.8875. It is safe to say that the model is performing very well. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.metrics import accuracy_score</span><br><span class="line"></span><br><span class="line">accuracy_score(valid_y, y_pred)</span><br></pre></td></tr></table></figure>
+  <p> — Aug 21, 2024</p>
+  
 
 
         </div>
