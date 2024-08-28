@@ -218,7 +218,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(15, 6))</span><br><span class="line">for i in range(30):  </span><br><span class="line">    plt.subplot(3, 10, i+1)</span><br><span class="line">    plt.imshow(training_set.features[i].reshape((28, 28)), cmap=plt.cm.binary)</span><br><span class="line">    plt.title(training_set.labels[i])</span><br><span class="line">    plt.axis(&#x27;off&#x27;)</span><br><span class="line">plt.subplots_adjust(wspace=-0.1, hspace=-0.1)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <p align="center">
-  <img src="src/visualization.png" />
+  <img src="/images/digit-recognizer/visualization.png" />
 </p>
 
 <h3 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h3><p>Below is the neural network. </p>
@@ -229,7 +229,7 @@
 
 <h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p><code>KFold</code> from <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html">scikit-learn</a> is used to avoid overfitting. The training set is shuffled and split into 5 folds, 80% and 20% of which will be used to train and validate the model respectively. </p>
 <p align="center">
-  <img src="src/structure.png" />
+  <img src="/images/digit-recognizer/structure.png" />
 </p>
 
 <h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><p>Below are the parameters and variables for the training. </p>
@@ -248,7 +248,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">fig, [[ax1, ax2, ax3], [ax4, ax5, ax6]] = plt.subplots(nrows=2, ncols=3, figsize=(18, 4))</span><br><span class="line"></span><br><span class="line">ax1.plot(training_losses_list[0], label=&#x27;training_loss&#x27;)</span><br><span class="line">ax1.plot(validation_losses_list[0], label=&#x27;validation_loss&#x27;)</span><br><span class="line">ax1.set_title(&#x27;Fold 1&#x27;)</span><br><span class="line"></span><br><span class="line">ax2.plot(training_losses_list[1], label=&#x27;training_loss&#x27;)</span><br><span class="line">ax2.plot(validation_losses_list[1], label=&#x27;validation_loss&#x27;)</span><br><span class="line">ax2.set_title(&#x27;Fold 2&#x27;)</span><br><span class="line"></span><br><span class="line">ax3.plot(training_losses_list[2], label=&#x27;training_loss&#x27;)</span><br><span class="line">ax3.plot(validation_losses_list[1], label=&#x27;validation_loss&#x27;)</span><br><span class="line">ax3.set_title(&#x27;Fold 3&#x27;)</span><br><span class="line"></span><br><span class="line">ax4.plot(training_losses_list[3], label=&#x27;training_loss&#x27;)</span><br><span class="line">ax4.plot(validation_losses_list[3], label=&#x27;validation_loss&#x27;)</span><br><span class="line">ax4.set_title(&#x27;Fold 4&#x27;)</span><br><span class="line"></span><br><span class="line">ax5.plot(training_losses_list[4], label=&#x27;training_loss&#x27;)</span><br><span class="line">ax5.plot(validation_losses_list[4], label=&#x27;validation_loss&#x27;)</span><br><span class="line">ax5.set_title(&#x27;Fold 5&#x27;)</span><br><span class="line"></span><br><span class="line">training_losses_average = [sum(x)/len(x) for x in zip(*training_losses_list)]</span><br><span class="line">validation_losses_average = [sum(x)/len(x) for x in zip(*validation_losses_list)]</span><br><span class="line">ax6.plot(training_losses_average, label=&#x27;training_loss&#x27;)</span><br><span class="line">ax6.plot(validation_losses_average, label=&#x27;validation_loss&#x27;)</span><br><span class="line">ax6.set_title(&#x27;Average&#x27;)</span><br><span class="line"></span><br><span class="line">ax3.legend()</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
 
 <p align="center">
-  <img src="src/losses.png" />
+  <img src="/images/digit-recognizer/losses.png" />
 </p>
 
 <h3 id="Ensemble"><a href="#Ensemble" class="headerlink" title="Ensemble"></a>Ensemble</h3><p>I ensemble the 5 models saved from training to make the final predictions on the testing set. </p>
@@ -259,7 +259,7 @@
 
 <h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>The submission achieved an accuracy score of 0.99575, the 84th on the leaderboard at the time of submission. </p>
 <p align="center">
-  <img src="src/leaderboard.png" />
+  <img src="/images/digit-recognizer/leaderboard.png" />
 </p>
   <p> — Aug 16, 2024</p>
   
